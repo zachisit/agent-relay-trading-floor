@@ -17,6 +17,6 @@ A monolithic implementation designed for stable demonstrations in restrictive ne
 * **Usage:** Run `node src/simulation/safe_demo.js` to see the logic flow in a crash-proof loop.
 
 ## Setup Notes
-* [cite_start]**Runtime:** Node.js v22.22.0 [cite: 25]
+* **Runtime:** Node.js v22.22.0 
 * **Environment:** WSL2 (Ubuntu 24.04)
-* [cite_start]**Optimization:** Workspace moved to native Linux partition (`~/`) to avoid NTFS socket locking issues[cite: 31].
+* **Optimization:** Workspace moved to native Linux partition (`~/`) to avoid NTFS socket locking issues.
