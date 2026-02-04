@@ -1,0 +1,17 @@
+{
+  "name": "trading-floor",
+  "version": "1.0.0",
+  "description": "Pacakge to test Agent-Relay for a local POC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@agent-relay/sdk": "^2.1.14",
+    "agent-relay": "^2.1.14"
+  },
+  "type": "module"
+}
