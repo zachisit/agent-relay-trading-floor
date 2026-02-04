@@ -1,22 +1,18 @@
-# Algorithmic Trading Agent Swarm
+# 🚀 Agent Relay Trading Swarm
 
-This repository contains the orchestration logic for a 3-agent trading system (Scanner, Risk, Executor) utilizing the Agent Relay architecture.
+A proof-of-concept for an autonomous, event-driven trading floor using **@agent-relay/sdk**. This project demonstrates a distributed agent architecture where specialized nodes communicate via a message bus to execute high-frequency trade logic.
 
-## Repository Structure
+### ⚡ System Architecture
 
-### 1. Production Agents (`/src/production`)
-These files contain the implementation using the actual `@agent-relay/sdk`.
-* **Architecture:** Distributed (Microservices)
-* **Transport:** TCP / Unix Domain Sockets
-* **Status:** Validated backend communication.
-* **Files:** `scanner.js`, `risk.js`, `executor.js`
+The swarm consists of three decoupled agents:
 
-### 2. Stable Simulation (`/src/simulation`)
-A monolithic implementation designed for stable demonstrations in restrictive network environments (e.g., Windows/WSL2 without GUI bridging).
-* **File:** `safe_demo.js`
-* **Usage:** Run `node src/simulation/safe_demo.js` to see the logic flow in a crash-proof loop.
+1. **Scanner:** Monitors market data feeds (RSI/Price action) and publishes opportunities.
+2. **Risk Manager:** Intercepts signals, enforces exposure limits, and filters "falling knife" scenarios.
+3. **Executor:** Consumes validated orders from Risk and simulates execution on the exchange.
 
-## Setup Notes
-* **Runtime:** Node.js v22.22.0 
-* **Environment:** WSL2 (Ubuntu 24.04)
-* **Optimization:** Workspace moved to native Linux partition (`~/`) to avoid NTFS socket locking issues.
+### 🛠️ Deployment Modes
+
+This repository contains two implementation patterns to address different infrastructure constraints:
+
+* **`/src/production`:** The full microservices implementation using TCP/Unix Sockets. Designed for cloud/Linux native environments.
+* **`/src/simulation`:** A monolithic, "headless" implementation (`safe_demo.js`). Designed for demonstration integrity in restrictive network environments (e.g., WSL2/Windows) where socket latency or bridging issues may compromise the event stream.
